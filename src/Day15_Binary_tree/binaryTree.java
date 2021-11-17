@@ -13,7 +13,7 @@ public class binaryTree {
 		} else if (value > current.value) {
 			current.right = addRecursive(current.right, value);
 		} else {
-			// value already exists
+
 			return current;
 		}
 
@@ -24,6 +24,17 @@ public class binaryTree {
 
 	public void add(int value) {
 		root = addRecursive(root, value);
+	}
+
+	// size method
+	int getSizeRecursive(binaryTreeNode current) {
+		return current == null ? 0 : 1 + this.getSizeRecursive(current.left) + this.getSizeRecursive(current.right);
+
+	}
+
+	int getSize() {
+		return this.getSizeRecursive(root);
+
 	}
 
 	public static void main(String[] args) {
