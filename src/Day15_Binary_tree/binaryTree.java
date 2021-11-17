@@ -37,6 +37,20 @@ public class binaryTree {
 
 	}
 
+	private boolean searchRecursively(binaryTreeNode current, int value) {
+		if (current == null) {
+			return false;
+		}
+		if (value == current.value) {
+			return true;
+		}
+		return value < current.value ? searchRecursively(current.left, value) : searchRecursively(current.right, value);
+	}
+
+	public boolean search(int value) {
+		return searchRecursively(root, value);
+	}
+
 	public static void main(String[] args) {
 		binaryTree bt = new binaryTree();
 		bt.add(1);
